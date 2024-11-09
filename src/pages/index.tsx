@@ -12,7 +12,8 @@ export default function Home() {
   // call fetch posts, this probably shouldn't live here
   const fetchPosts = async () => {
     try {
-      const response = await api.get("/Posts");
+      // this endpoint needs to match whatever you named your endpoint in the mock api
+      const response = await api.get("/posts");
       console.log(response.data);
       setPosts(response.data);
     } catch (error) {
@@ -23,7 +24,7 @@ export default function Home() {
   return (
     <div>
       <h1>WELCOME</h1>
-      <h2>Post Count: {posts.length}</h2>
+      <h2>Post Count: {posts.length ?? 0}</h2>
       <ul>
         {posts.map((post) => (
           <li key={post.id}>Post Title: {post.title}</li>
