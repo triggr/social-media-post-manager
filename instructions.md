@@ -66,32 +66,35 @@ We’ll use [MockAPI](https://mockapi.io/) for a RESTful API with full CRUD capa
      - **videoUrl**: string (for Video post type)
 
 4. **Get the Base URL**:
-   - Copy your project’s base URL from MockAPI, which will look like `https://YOUR_PROJECT_ID.mockapi.io/api/v1/posts`.
+   - Rename the file `rename_me_to.env` to `.env` (note, never commit this file, it contains secrets)
+   - Copy your project’s base URL from MockAPI, which will look like `https://YOUR_PROJECT_ID.mockapi.io/api/v1`, and place it inside your .env file as `NEXT_PUBLIC_MOCK_API_URL`
 
 #### Setting Up Axios to Use MockAPI
 
 1. In your React app, create an `api.js` file to configure Axios with the base URL:
 
-   - `import axios from 'axios';`
-   - `const api = axios.create({ baseURL: 'https://YOUR_PROJECT_ID.mockapi.io/api/v1', });`
-   - `export default api;`
+````js
+import axios from 'axios';
+ const api = axios.create({ baseURL: 'https://YOUR_PROJECT_ID.mockapi.io/api/v1', });
+ export default api;
+ ```
 
-2. Example Request with Axios:
+1. Example Request with Axios:
 
-   - Here’s a sample request for fetching all posts:
+ - Here’s a sample request for fetching all posts:
 
-     ```javascript
-     import api from "./api";
+   ```javascript
+   import api from "./api";
 
-     const fetchPosts = async () => {
-       try {
-         const response = await api.get("/posts");
-         console.log(response.data);
-       } catch (error) {
-         console.error("Error fetching posts:", error);
-       }
-     };
-     ```
+   const fetchPosts = async () => {
+     try {
+       const response = await api.get("/posts");
+       console.log(response.data);
+     } catch (error) {
+       console.error("Error fetching posts:", error);
+     }
+   };
+````
 
 ---
 
@@ -116,25 +119,26 @@ Add basic validation:
 
 1. **Home Screen**:
 
-   - Display all posts fetched from MockAPI, showing `title`, type, and a label or thumbnail based on post type.
-   - Include a search bar to filter posts by title.
-   - Reusable Components: Use components like `PostList` and `PostItem` to display posts and individual post previews.
+- Display all posts fetched from MockAPI, showing `title`, type, and a label or thumbnail based on post type.
+- Include a search bar to filter posts by title.
+- Reusable Components: Use components like `PostList` and `PostItem` to display posts and individual post previews.
 
 2. **Post Detail Screen**:
 
-   - Display the full details of each post based on type:
-     - **Text Post**: Show `title` and `body`.
-     - **Image Post**: Show `title`, `body`, and an image (using `imageUrl`).
-     - **Video Post**: Show `title`, `body`, and an embedded video (using `videoUrl`).
-   - Include “Edit” and “Delete” options for each post.
+- Display the full details of each post based on type:
+  - **Text Post**: Show `title` and `body`.
+  - **Image Post**: Show `title`, `body`, and an image (using `imageUrl`).
+  - **Video Post**: Show `title`, `body`, and an embedded video (using `videoUrl`).
+- Include “Edit” and “Delete” options for each post.
 
 3. **Create/Edit Post Screen**:
-   - Add a dropdown for selecting post type (Text, Image, Video).
-   - Show conditional fields based on type:
-     - **Text Post**: `title` and `body`.
-     - **Image Post**: `title`, `body`, and `imageUrl`.
-     - **Video Post**: `title`, `body`, and `videoUrl`.
-   - Validate each field based on the selected type.
+
+- Add a dropdown for selecting post type (Text, Image, Video).
+- Show conditional fields based on type:
+  - **Text Post**: `title` and `body`.
+  - **Image Post**: `title`, `body`, and `imageUrl`.
+  - **Video Post**: `title`, `body`, and `videoUrl`.
+- Validate each field based on the selected type.
 
 ---
 
@@ -142,19 +146,20 @@ Add basic validation:
 
 1. **Display Posts with Types**:
 
-   - Fetch posts from `GET /posts` and display them on the Home screen.
-   - Use reusable components (`PostList`, `PostItem`) to show post previews and details.
-   - Implement a search bar to filter posts by title.
+- Fetch posts from `GET /posts` and display them on the Home screen.
+- Use reusable components (`PostList`, `PostItem`) to show post previews and details.
+- Implement a search bar to filter posts by title.
 
 2. **Create/Edit/Delete Posts**:
 
-   - Use a form that conditionally renders fields based on post type.
-   - Submit new posts to MockAPI via `POST /posts` and update existing posts via `PUT /posts/:id`.
-   - Include field validation based on post type.
-   - Delete posts via `DELETE /posts/:id`.
+- Use a form that conditionally renders fields based on post type.
+- Submit new posts to MockAPI via `POST /posts` and update existing posts via `PUT /posts/:id`.
+- Include field validation based on post type.
+- Delete posts via `DELETE /posts/:id`.
 
 3. **Reusable Components**:
-   - Create and reuse components to keep the app modular and maintainable.
+
+- Create and reuse components to keep the app modular and maintainable.
 
 ---
 
@@ -164,22 +169,27 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 
 1. **Deploy to GitHub Pages**:
 
-   - Deploy the app to GitHub Pages and configure automatic deployment on push to `master`.
+- Deploy the app to GitHub Pages and configure automatic deployment on push to `master`.
 
 2. **Enhanced Filtering and Sorting**:
 
-   - Add filters to display specific post types or sort by length of title/body.
+- Add filters to display specific post types or sort by length of title/body.
 
 3. **Data Transformation Challenge**:
 
-   - Use transformations to show stats like the total counts for each post type and average word count.
+- Use transformations to show stats like the total counts for each post type and average word count.
 
 4. **Advanced URL Validation**:
 
-   - Use regex for robust URL validation in `imageUrl` and `videoUrl`.
+- Use regex for robust URL validation in `imageUrl` and `videoUrl`.
 
 5. **Responsive Design**:
-   - Style with SASS/LESS and make the app mobile-friendly.
+
+- Style with SASS/LESS and make the app mobile-friendly.
+
+6. **Fancy UI**
+
+- Make the UI really nice and clean!
 
 ---
 
@@ -191,6 +201,8 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 
 3. **Code Quality and Usability**: We want to see readable, maintainable code that demonstrates how you handle real-world app requirements, as well as attention to UX/UI considerations.
 
+4. **UI And Presentation**: I am not expecting you to spend significant time finetuning the styles of your components. A nice and clean UI is definitely important, but as long as you are following basic principles (8pt rule, padding and margins, open sans font, etc, I do not really care what you make this look like). If you want to show off your styling skills and go all out on the UI, feel free to do so! If you feel that is a strong suit of yours then please highlight it as much as possible. As a general rule though, the point of this is to gauge your javascript and decision making abilities. You are also free to use Material UI or Bootstrap, or whatever you want.
+
 ---
 
 ## Troubleshooting Tips
@@ -199,7 +211,7 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 - **API Requests Failing**: Double-check your `baseURL` in the Axios setup and ensure you’re using the correct endpoint paths.
 - **Conditional Rendering Issues**: Ensure each post type renders the appropriate fields by using conditional logic (e.g., render `imageUrl` field only for Image posts).
 - **GitHub Pages Deployment Issues**: If your app isn’t displaying properly on GitHub Pages, ensure you’ve configured the `next.config.js` for static export:
-  - `module.exports = { output: 'export' };`
+- `module.exports = { output: 'export' };`
 
 ---
 
@@ -207,4 +219,4 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 
 Push your project to GitHub and provide a deployed link to GitHub Pages. Share notes on your approach, decisions, and areas you’d expand with more time.
 
-Good luck, and enjoy the challenge!
+Good luck, and enjoy the challenge! Please reach out if you get stuck on anything. Nothing in here is intended to trick you or cause issues with running/building the project. It is hopefully set up and configured in a way that allows you to hit the ground running and start making immediate progress.
