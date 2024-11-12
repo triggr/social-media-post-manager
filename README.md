@@ -17,26 +17,16 @@ Welcome! This challenge is designed to evaluate your React skills, your ability 
 
 We’ll use **Next.js** as the setup framework. While Next.js has features for server-side rendering, you won’t need to use them here. We’re only using Next.js for its easy project setup and bundling capabilities.
 
-#### Step 1: Initialize the Project - DONE
+- Fork the repo and clone it locally if needed
+- cd into repo
+- npm i
+- update `rename_me_to.env` in project root to `.env`
+- remove the # before the `NODE_PUBLIC_MOCK_API_URL` to uncomment it
+- update the variable in there to be your mock api base url (something like `NEXT_PUBLIC_MOCK_API_URL=https://672eaee12292342sdfs23.mockapi.io/api/v1`
+  )
+- npm run dev
 
-1. Run the following command in your terminal to create the project:
-   - `npx create-next-app@latest social-media-post-manager`
-2. Choose **JavaScript** as the language (you can select TypeScript if you’re comfortable with it).
-3. Once setup is complete, navigate into the project directory:
-   - `cd social-media-post-manager`
-
-#### Step 2: Start the Development Server
-
-To start the project locally, run:
-
-- `npm run dev`
-  Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
-
-#### Step 3: Install Axios - DONE
-
-For handling API requests, install Axios:
-
-- `npm install axios`
+NOTE THIS NEEDS A VALID MOCK API URL TO BE PLACED IN, SEE BELOW
 
 ---
 
@@ -71,29 +61,25 @@ We’ll use [MockAPI](https://mockapi.io/) for a RESTful API with full CRUD capa
 
 #### Setting Up Axios to Use MockAPI
 
-1. In your React app, create an `api.js` file to configure Axios with the base URL:
+1. In your React app, you have an `api.js` file that is already set up to give Axios the base URL defined in .env
 
-````js
-import axios from 'axios';
- const api = axios.create({ baseURL: 'https://YOUR_PROJECT_ID.mockapi.io/api/v1', });
- export default api;
- ```
+2. Example Request with Axios:
 
-1. Example Request with Axios:
+- Here’s a sample request for fetching all posts:
 
- - Here’s a sample request for fetching all posts:
+  ```javascript
+  import api from "./api";
 
-   ```javascript
-   import api from "./api";
+  const fetchPosts = async () => {
+    try {
+      const response = await api.get("/posts");
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+  ```
 
-   const fetchPosts = async () => {
-     try {
-       const response = await api.get("/posts");
-       console.log(response.data);
-     } catch (error) {
-       console.error("Error fetching posts:", error);
-     }
-   };
 ````
 
 ---
@@ -261,3 +247,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+````
