@@ -199,6 +199,10 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 
 ---
 
+**THIS IS THE END OF THE INSTRUCTIONS. THE REST OF THIS WAS INCLUDED BY NEXTJS WHEN THE PROJECT WAS GENERATED... LEFT IN HERE IN CASE YOU NEED TO REFER BUT YOU SHOULD NOT HAVE TO**
+
+---
+
 ## Submission
 
 Push your project to GitHub and provide a deployed link to GitHub Pages. Share notes on your approach, decisions, and areas you’d expand with more time.
