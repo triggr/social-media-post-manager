@@ -18,9 +18,9 @@ Welcome! This challenge is designed to evaluate your React skills, your ability 
 We’ll use **Next.js** as the setup framework. While Next.js has features for server-side rendering, you won’t need to use them here. We’re only using Next.js for its easy project setup and bundling capabilities.
 
 - Fork the repo and clone it locally if needed
-- cd into repo
-- npm i
-- update `rename_me_to.env` in project root to `.env`
+- `cd social-media-post-manager`
+- `npm i`
+- rename `rename_me_to.env` in project root to `.env`
 - remove the # before the `NODE_PUBLIC_MOCK_API_URL` to uncomment it
 - update the variable in there to be your mock api base url (something like `NEXT_PUBLIC_MOCK_API_URL=https://672eaee12292342sdfs23.mockapi.io/api/v1`
   )
