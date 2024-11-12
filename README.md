@@ -197,17 +197,17 @@ We want to see what you think will best showcase your skills. Choose wisely; foc
 - **GitHub Pages Deployment Issues**: If your app isn’t displaying properly on GitHub Pages, ensure you’ve configured the `next.config.js` for static export:
 - `module.exports = { output: 'export' };`
 
----
-
-**THIS IS THE END OF THE INSTRUCTIONS. THE REST OF THIS WAS INCLUDED BY NEXTJS WHEN THE PROJECT WAS GENERATED... LEFT IN HERE IN CASE YOU NEED TO REFER BUT YOU SHOULD NOT HAVE TO**
-
----
-
 ## Submission
 
 Push your project to GitHub and provide a deployed link to GitHub Pages. Share notes on your approach, decisions, and areas you’d expand with more time.
 
 Good luck, and enjoy the challenge! Please reach out if you get stuck on anything. Nothing in here is intended to trick you or cause issues with running/building the project. It is hopefully set up and configured in a way that allows you to hit the ground running and start making immediate progress.
+
+---
+
+**THIS IS THE END OF THE INSTRUCTIONS. THE REST OF THIS WAS INCLUDED BY NEXTJS WHEN THE PROJECT WAS GENERATED... LEFT IN HERE IN CASE YOU NEED TO REFER BUT YOU SHOULD NOT HAVE TO**
+
+---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
